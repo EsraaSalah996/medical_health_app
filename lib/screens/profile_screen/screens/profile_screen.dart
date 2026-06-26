@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medical_health_app/core/shared_widgets/custom_header.dart';
+import 'package:medical_health_app/screens/profile_screen/widgets/custom_header.dart';
 import 'package:medical_health_app/screens/profile_screen/screens/edit_profile_screen.dart';
+import 'package:medical_health_app/screens/profile_screen/screens/settings_screen.dart';
 import 'package:medical_health_app/screens/profile_screen/widgets/custom_profile_image.dart';
 import 'package:medical_health_app/screens/profile_screen/widgets/profile_menu_item.dart';
 
@@ -65,7 +66,14 @@ class ProfileScreen extends StatelessWidget {
                   ProfileMenuItem(
                     iconPath: "assets/icons/settings.svg",
                     title: 'Settings',
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SettingsScreen(),
+                        ),
+                      );
+                    },
                   ),
                   ProfileMenuItem(
                     iconPath: "assets/icons/help.svg",
