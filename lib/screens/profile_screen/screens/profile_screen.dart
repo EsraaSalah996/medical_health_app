@@ -23,7 +23,6 @@ class ProfileScreen extends StatelessWidget {
                     CustomProfileImage(),
                     const SizedBox(height: 16),
 
-                    // الاسم
                     const Text(
                       "John Doe",
                       style: TextStyle(
