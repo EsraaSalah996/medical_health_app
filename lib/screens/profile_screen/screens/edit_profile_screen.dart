@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical_health_app/core/shared_widgets/custom_header.dart';
 import 'package:medical_health_app/screens/profile_screen/screens/profile_screen.dart';
-import 'package:medical_health_app/screens/profile_screen/widgets/custom_profile_text_feild.dart';
+import 'package:medical_health_app/screens/profile_screen/widgets/custom_data_container.dart';
 import 'package:medical_health_app/screens/profile_screen/widgets/custom_profile_image.dart';
 import 'package:medical_health_app/screens/profile_screen/widgets/custom_update_profile_button.dart';
 
@@ -54,29 +54,19 @@ class EditProfileScreen extends StatelessWidget {
               SizedBox(height: 13),
               CustomProfileImage(),
               SizedBox(height: 53),
-              CustomTextField(
-                label: "Full Name",
-                hintText: "enter your name",
-                isPassword: false,
-              ),
+              CustomDataContainer(label: "Full Name", value: "John Doe"),
               SizedBox(height: 31),
-              CustomTextField(
+              CustomDataContainer(
                 label: "Phone number",
-                hintText: "enter your Phone number",
-                isPassword: false,
+                value: "+123 567 89000",
               ),
               SizedBox(height: 31),
-              CustomTextField(
-                label: "Email",
-                hintText: "enter your email",
-                isPassword: false,
-              ),
+              CustomDataContainer(label: "Email", value: "Johndoe@example.com"),
               SizedBox(height: 31),
-              CustomTextField(
+              CustomDataContainer(
                 label: "Date of birth",
-                hintText: "DD / MM /YYY",
-                isPassword: false,
-                hintColor: Color(0xff2260FF),
+                value: "DD / MM /YYY",
+                valueColor: Color(0xff2260FF),
               ),
               SizedBox(height: 61),
               CustomUpdateProfileButton(text: "Update Profile", onTap: () {}),
