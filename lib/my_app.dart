@@ -9,6 +9,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Doctor App',
+      theme: ThemeData(
+        fontFamily: 'Roboto',
+        scaffoldBackgroundColor: const Color(0xFFF0F0FF),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3D5AF1)),
+      ),
       home: const HomeScreen(),
       // home: ProfileScreen(),
     );
