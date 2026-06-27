@@ -4,17 +4,24 @@ import 'package:flutter_svg/svg.dart';
 class CustomHeaderRow extends StatelessWidget {
   final String title;
   final Widget? trailingIcon;
+  final VoidCallback onTap;
 
-  const CustomHeaderRow({super.key, required this.title, this.trailingIcon});
+  const CustomHeaderRow({
+    super.key,
+    required this.title,
+    this.trailingIcon,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
+            onTap: onTap,
             child: SvgPicture.asset(
               'assets/icons/arrow back.svg',
               width: 18,
