@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget{
 import 'package:flutter/material.dart';
 
 import 'package:medical_health_app/screens/profile_screen/screens/profile_screen.dart';
-// import 'package:medical_health_app/screens/profile_screen/screens/profile_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -29,7 +28,6 @@ class MyApp extends StatelessWidget {
 =======
       debugShowCheckedModeBanner: false,
       home: const ProfileScreen(),
-      // home: ProfileScreen(),
     );
   }
 }
