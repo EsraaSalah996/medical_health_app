@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_health_app/screens/profile_screen/widgets/custom_header.dart';
+import 'package:medical_health_app/core/shared_widgets/custom_header_row.dart';
 import 'package:medical_health_app/screens/profile_screen/screens/edit_profile_screen.dart';
 import 'package:medical_health_app/screens/profile_screen/screens/settings_screen.dart';
 import 'package:medical_health_app/screens/profile_screen/widgets/custom_profile_image.dart';
