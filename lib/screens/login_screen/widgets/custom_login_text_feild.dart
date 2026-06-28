@@ -51,15 +51,12 @@ class CustomLoginTextFeild extends StatelessWidget {
             ),
 
             suffixIcon: isPassword
-                ? Padding(
-                    padding: const EdgeInsets.only(right: 18),
-                    child: SizedBox(
-                      width: 22,
-                      height: 22,
-                      child: SvgPicture.asset(
-                        "assets/icons/hide.svg",
-                        fit: BoxFit.contain,
-                      ),
+                ? const Padding(
+                    padding: EdgeInsets.only(right: 18),
+                    child: Icon(
+                      Icons.visibility_off_outlined,
+                      size: 22,
+                      color: Colors.black54,
                     ),
                   )
                 : null,

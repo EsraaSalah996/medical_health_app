@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medical_health_app/screens/home/home_screen.dart';
+import 'package:medical_health_app/screens/login_screen/screens/first_login_screen.dart';
+// لو هتستخدمي الـ HomeScreen، تأكدي من عمل import للملف بتاعها هنا
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF0F0FF),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3D5AF1)),
       ),
-      home: const HomeScreen(),
+      home: const FirstLoginScreen(), // أو حطي HomeScreen() لو ده المطلوب حالياً
     );
   }
 }

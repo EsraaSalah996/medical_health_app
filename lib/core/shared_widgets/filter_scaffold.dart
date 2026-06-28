@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:medical_health_app/core/data/doctors_data.dart';
-import 'package:medical_health_app/core/shared_widgets/gender_card.dart';
+import 'package:medical_health_app/screens/favorite_services/widget/gender_card.dart';
 import 'package:medical_health_app/screens/favorite_services/favorite_screen.dart';
 import 'package:medical_health_app/core/shared_widgets/filter_search.dart';
 import 'package:medical_health_app/core/shared_widgets/button_navigation_bar.dart';
+import 'package:medical_health_app/screens/favorite_services/widget/custom_rating_cart.dart';
 
 class FilterScaffold extends StatelessWidget {
   final String title;
@@ -35,11 +36,22 @@ class FilterScaffold extends StatelessWidget {
           body: const Center(child: Text('A → Z')),
         );
       case 1:
+        final sorted = [...DoctorsData.all]
+          ..sort((a, b) => b.rating.compareTo(a.rating));
         return FilterScaffold(
           key: ValueKey(index),
           title: 'Top Rated',
           currentFilterIndex: 1,
-          body: const Center(child: Text('Top Rated')),
+          body: ListView.builder(
+            padding: const EdgeInsets.only(bottom: 20),
+            itemCount: sorted.length,
+            itemBuilder: (context, index) => CustomRatingCard(
+              doctorName: sorted[index].name,
+              specialty: sorted[index].specialization,
+              rating: sorted[index].rating.toString(),
+              doctorImagePath: sorted[index].image,
+            ),
+          ),
         );
       case 2:
         return FilterScaffold(
@@ -83,31 +95,57 @@ class FilterScaffold extends StatelessWidget {
     }
   }
 
+  static Widget _iconCircle(IconData icon) {
+    return Container(
+      width: 28,
+      height: 28,
+      decoration: BoxDecoration(
+        color: const Color(0xFFCAD6FF).withValues(alpha: 0.6),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(icon, color: const Color(0xFF2260FF), size: 14),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F7FF),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF5F7FF),
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF4D6FFF)),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            color: Color(0xFF1A1A2E),
-            fontWeight: FontWeight.bold,
+        automaticallyImplyLeading: false,
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const Icon(
+                  Icons.arrow_back_ios,
+                  color: Color(0xFF2260FF),
+                  size: 18,
+                ),
+              ),
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Color(0xFF2260FF),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
+              ),
+              Row(
+                children: [
+                  _iconCircle(Icons.search_rounded),
+                  const SizedBox(width: 8),
+                  _iconCircle(Icons.tune_rounded),
+                ],
+              ),
+            ],
           ),
         ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search, color: Color(0xFF4D6FFF)),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Column(
         children: [

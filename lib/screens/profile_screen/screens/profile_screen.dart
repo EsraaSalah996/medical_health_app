@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medical_health_app/core/shared_widgets/button_navigation_bar.dart';
 import 'package:medical_health_app/core/shared_widgets/custom_header_row.dart';
+import 'package:medical_health_app/screens/login_screen/screens/second_login_screen.dart';
 import 'package:medical_health_app/screens/profile_screen/screens/edit_profile_screen.dart';
 import 'package:medical_health_app/screens/profile_screen/screens/settings_screen.dart';
 import 'package:medical_health_app/screens/profile_screen/widgets/custom_profile_image.dart';
@@ -17,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
 
           child: Column(
             children: [
-              CustomHeaderRow(title: "My Profile", onTap: () {}),
+              const CustomHeaderRow(title: "My Profile"),
               Column(
                 children: [
                   const SizedBox(height: 24),
@@ -83,17 +85,23 @@ class ProfileScreen extends StatelessWidget {
                   ProfileMenuItem(
                     iconPath: "assets/icons/logout.svg",
                     title: 'Logout',
-                    onTap: () {},
+                    onTap: () => Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const SecondLoginScreen()),
+                      (route) => false,
+                    ),
                     showArrow: false,
                   ),
 
-                  const SizedBox(height: 102),
+                  const SizedBox(height: 20),
                 ],
               ),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: const ButtonNavigationBar(initialIndex: 2),
     );
   }
 }

@@ -37,7 +37,7 @@ class ServiceCard extends StatelessWidget {
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
-                        fontSize: 14,
+                        fontSize: 16,
                       ),
                     ),
                   ),
@@ -49,7 +49,7 @@ class ServiceCard extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
-                      Icons.check,
+                      Icons.arrow_drop_down,
                       color: Color(0xFF2260FF),
                       size: 16,
                     ),
@@ -58,46 +58,47 @@ class ServiceCard extends StatelessWidget {
               ),
             ),
           ),
-          // Expanded content
-          if (isExpanded)
+          if (isExpanded) ...[
+            const SizedBox(height: 6),
             Container(
               width: double.infinity,
-              margin: const EdgeInsets.only(top: 4),
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+              padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: const Color(0xFFCAD6FF),
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                    'Praesent pellentesque congue lorem, vel tincidunt tortor '
-                    'placerat at. Proin ac diam quam. '
-                    'Aenean in sagittis magna, ut feugiat diam.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 12, color: Colors.black54),
-                  ),
-                  const SizedBox(height: 14),
-                ],
+              child: const Text(
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                'Praesent pellentesque congue lorem, vel tincidunt tortor '
+                'placerat at. Proin ac diam quam. '
+                'Aenean in sagittis magna, ut feugiat diam.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w200,
+                  color: Color(0xff000000),
+                ),
               ),
             ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: const Text(
-              'looking doctors',
-              style: TextStyle(
-                color: Color(0xFF2260FF),
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+            const SizedBox(height: 6),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: const Color(0xFFCAD6FF),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: const Text(
+                'looking doctors',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF2260FF),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14,
+                ),
               ),
             ),
-          ),
+          ],
         ],
       ),
     );

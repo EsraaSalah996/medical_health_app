@@ -9,6 +9,8 @@ class FavoriteDoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 300,
+      height: 155,
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -23,33 +25,38 @@ class FavoriteDoctorCard extends StatelessWidget {
             backgroundImage: AssetImage(doctor.image),
             backgroundColor: Colors.white,
           ),
-          const SizedBox(width: 14),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: const [
-                    Icon(Icons.workspace_premium,
-                        color: Color(0xFF2260FF), size: 18),
+                    Icon(
+                      Icons.workspace_premium,
+                      color: Color(0xFF2260FF),
+                      size: 18,
+                    ),
                     SizedBox(width: 4),
                     Text(
                       'Professional Doctor',
                       style: TextStyle(
-                        color: Color(0xFF1A1A2E),
+                        color: Colors.black,
                         fontWeight: FontWeight.w600,
                         fontSize: 13,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 5),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 3,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(13),
                   ),
                   child: Row(
                     children: [
@@ -76,12 +83,15 @@ class FavoriteDoctorCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const Icon(Icons.favorite,
-                          color: Color(0xFF2260FF), size: 22),
+                      const Icon(
+                        Icons.favorite,
+                        color: Color(0xFF2260FF),
+                        size: 22,
+                      ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 3),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -89,16 +99,16 @@ class FavoriteDoctorCard extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2260FF),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(16),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      // padding: const EdgeInsets.symmetric(vertical: 3),
                     ),
                     child: const Text(
                       'Make Appointment',
                       style: TextStyle(
                         color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 13,
+                        fontWeight: FontWeight.w300,
+                        fontSize: 12,
                       ),
                     ),
                   ),
