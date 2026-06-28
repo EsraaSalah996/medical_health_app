@@ -7,6 +7,7 @@ import 'package:medical_health_app/core/shared_widgets/custom_nav_bar.dart';
 
 
 class DoctorInfoScreen extends StatelessWidget{
+  const DoctorInfoScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

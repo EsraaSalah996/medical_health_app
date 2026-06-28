@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 class ContainerDoctorInfo extends StatelessWidget {
-  const ContainerDoctorInfo({Key? key}) : super(key: key);
+ 
+ const ContainerDoctorInfo({super.key});
 
   final Color primaryColor = const Color(0xff2260FF);
   final Color lightBlueBg = const Color(0xffCAD6FF);
@@ -21,12 +22,11 @@ class ContainerDoctorInfo extends StatelessWidget {
         padding: const EdgeInsets.only(left:15),
         child: Column(
           children: [
-            // 1. الجزء العلوي (الصورة والـ Containers الجانبية)
+           
             Row(
         
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // حاوية الصورة الدائرية
                 Container(
                   width: 135,
                   height: 135,
@@ -41,14 +41,12 @@ class ContainerDoctorInfo extends StatelessWidget {
                 ),
                 const SizedBox(width:8),
                 
-                // الأجزاء الجانبية للنصوص (الـ Experience والـ Focus)
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(right:10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        // أ: حاوية الـ Experience المعدلة تماماً
                         Container(
                           width:130,
                           height:35,
@@ -59,16 +57,14 @@ class ContainerDoctorInfo extends StatelessWidget {
                           ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.center, // جعل الأيقونة تتوسط الـ Container رأساً لتنزل قليلاً
+                            crossAxisAlignment: CrossAxisAlignment.center, 
                             children: [
-                              // الأيقونة مستقلة داخل الـ Row
                               Image.asset(
                                 "assets/images/premium.png",
                               
                               ),
-                              const SizedBox(width:2), // مسافة أفقية بين الأيقونة والعمود
+                              const SizedBox(width:2), 
                               
-                              // الـ Column الداخلي الذي يجمع النصوص تحت بعضها
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(horizontal:2),
@@ -100,9 +96,8 @@ class ContainerDoctorInfo extends StatelessWidget {
                           ),
                         ),
                         
-                        const SizedBox(height: 6), // مسافة فاصلة بين الـ Experience والـ Focus
+                        const SizedBox(height: 6), 
                         
-                        // ب: حاوية الـ Focus المطلوبة كاملة
                         Container(
                           width: 130,
                           height:108,
@@ -127,9 +122,8 @@ class ContainerDoctorInfo extends StatelessWidget {
               ],
             ),
             
-            const Spacer(), // توزيع مسافات ذكي وثابت مثل الفيجما
+            const Spacer(), 
             
-            // 2. كبسولة الاسم البيضاء الممتدة
             Container(
               width:260,
               height:45,
@@ -155,17 +149,15 @@ class ContainerDoctorInfo extends StatelessWidget {
             
             const Spacer(),
             
-            // 3. سطر كبسولات التقييم والمواعيد المنفصلة تماماً
             Row(
              
               children: [
-                // كبسولة التقييم والتعليقات المدمجة (شمال)
                 Container(
-                width: 40,  // المقاس بالظبط من الفيجما (Rectangle 53)
-                height: 18, // الارتفاع من الفيجما
+                width: 40,  
+                height: 18, 
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(13), // الـ Radius من الفيجما
+                  borderRadius: BorderRadius.circular(13), 
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(left:5),
@@ -183,9 +175,8 @@ class ContainerDoctorInfo extends StatelessWidget {
                 ),
               ),
               SizedBox(width:3),
-              // ب: كبسولة التعليقات منفصلة لوحدها
               Container(
-                width: 40,  // نفس مقاس كبسولة التقييم لتوحيد الشكل
+                width: 40, 
                 height: 18,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -207,7 +198,6 @@ class ContainerDoctorInfo extends StatelessWidget {
                 ),
               ),
                 SizedBox(width:5),
-                // كبسولة المواعيد (يمين)
                 Container(
                   width:175,
                   height:23,
@@ -232,37 +222,31 @@ class ContainerDoctorInfo extends StatelessWidget {
             
             const Spacer(),
             
-            // 4. السطر الأخير: زر الـ Schedule وأيقونات الفيجما الأصلية السادة
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // زر الـ Schedule المخصص (أيقونة + نص في الآخر)
               InkWell(
                 onTap: () {
-                  // أكشن الضغط
                 },
                 borderRadius: BorderRadius.circular(13),
                 child: Container(
-                  width: 85,  // المقاس بالملي من الفيجما
-                  height: 21, // المقاس بالملي من الفيجما
-                  padding: const EdgeInsets.symmetric(horizontal: 6), // مسافة داخلية بسيطة لحماية العناصر من الأطراف
+                  width: 85, 
+                  height: 21, 
+                  padding: const EdgeInsets.symmetric(horizontal: 6), 
                   decoration: BoxDecoration(
                     color: primaryColor,
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: Row(
                 
-                     // يخلي الأيقونة أول الكونتينر والنص في آخره تماماً
                     children: [
-                      // الأيقونة الـ Custom اللي منزلاها من الفيجما قبل الكلمة
                      
                       Image.asset(
-                        'assets/images/calendar icon.png', // حطي اسم ملف الأيقونة الجديد هنا بالظبط
-                        width: 10,  // مقاس صغير يناسب حجم الزرار
+                        'assets/images/calendar icon.png', 
+                        width: 10, 
                         height: 10,
                       ),
                       
-                      // كلمة Schedule في آخر الكونتينر
                       Padding(
                         padding: const EdgeInsets.only(left:10),
                         child: const Text(
@@ -278,31 +262,26 @@ class ContainerDoctorInfo extends StatelessWidget {
                   ),
                 ),
               ),
-                
-                // أيقونات الفيجما الصافية (نجمة سادة وقلب سادة)
-                // الـ Row اللي بيجمع الأيقونات الأربعة في أقصى اليمين
 Padding(
   padding: const EdgeInsets.only(right:3),
   child: Row(
-    mainAxisSize: MainAxisSize.min, // يخليهم مضغوطين جمب بعض
+    mainAxisSize: MainAxisSize.min, 
     children: [
-      // 1. أيقونة الـ Info (الـ Custom من الفيجما)
       Container(
-        width: 18,  // مقاس متناسق مع حجم الفيجما الصغير
+        width: 18,  
         height: 18,
         decoration: const BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
         ),
-        padding: const EdgeInsets.all(3), // مسافة داخلية للأيقونة
+        padding: const EdgeInsets.all(3), 
         child: Image.asset(
-          'assets/images/help icon.png', // حطي مسار الأيقونة الـ custom هنا
-          color:Color(0xff2260FF), // يلون الأيقونة بالأزرق
+          'assets/images/help icon.png',
+          color:Color(0xff2260FF), 
         ),
       ),
-      const SizedBox(width:1), // مسافة فاصلة بين كل دايرة والتانية
+      const SizedBox(width:1),
   
-      // 2. أيقونة الـ Chat / Messages
       Container(
         width: 18,
         height: 18,
@@ -312,13 +291,12 @@ Padding(
         ),
         padding: const EdgeInsets.all(3),
         child: Image.asset(
-          'assets/images/question icon.png', // حطي مسار أيقونة الـ chat من الفيجما
+          'assets/images/question icon.png', 
           color:Color(0xff2260FF),
         ),
       ),
       
         const SizedBox(width: 1),
-      // 3. أيقونة القلب (المفضلة)
       Container(
         width: 18,
         height: 18,
@@ -328,13 +306,12 @@ Padding(
         ),
         padding: const EdgeInsets.all(3),
         child: Image.asset(
-          'assets/images/favorite icon.png', // حطي مسار أيقونة القلب من الفيجما
+          'assets/images/favorite icon.png', 
           color:Color(0xff2260FF),
         ),
       ),
       const SizedBox(width:1),
   
-      // 4. أيقونة الـ Bookmark / Save الأخيرة
       Container(
         width: 18,
         height: 18,
@@ -344,15 +321,13 @@ Padding(
         ),
         padding: const EdgeInsets.all(3),
         child: Image.asset(
-          'assets/images/love icon.png', // حطي مسار أيقونة الـ bookmark من الفيجما
+          'assets/images/love icon.png', 
           color:Color(0xff2260FF),
         ),
       ),
     ],
   ),
 ),
-
-     
               ],
             ),
           ],
