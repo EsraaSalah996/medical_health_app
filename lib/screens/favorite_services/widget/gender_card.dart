@@ -9,7 +9,7 @@ class GenderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       child: Container(
         width: 310,
         height: 135,

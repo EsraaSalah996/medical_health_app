@@ -4,6 +4,7 @@ import 'package:medical_health_app/core/shared_widgets/custom_header_row.dart';
 import 'package:medical_health_app/screens/home/home_screen.dart';
 import 'package:medical_health_app/screens/login_screen/screens/first_login_screen.dart';
 import 'package:medical_health_app/screens/login_screen/screens/sign_up_screen.dart';
+import 'package:medical_health_app/screens/login_screen/screens/set_password_screen.dart';
 import 'package:medical_health_app/screens/login_screen/widgets/authintcation_footer.dart';
 import 'package:medical_health_app/screens/login_screen/widgets/custom_login_button.dart';
 import 'package:medical_health_app/screens/login_screen/widgets/custom_login_text_feild.dart';
@@ -65,7 +66,14 @@ class SecondLoginScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SetPasswordScreen(),
+                            ),
+                          );
+                        },
                         child: const Text(
                           "Forget Password",
                           style: TextStyle(
@@ -117,7 +125,7 @@ class SecondLoginScreen extends StatelessWidget {
                     const SizedBox(height: 45),
 
                     AuthintcationFooter(
-                      text: "Don’t have an account? Sign Up",
+                      text: "Don’t have an account?  ",
                       actionText: "Sign Up",
                       onTap: () {
                         Navigator.push(

@@ -1,15 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:medical_health_app/core/image/app_image.dart';
+import 'package:medical_health_app/screens/home/home_screen.dart';
+import 'package:medical_health_app/screens/profile_screen/screens/profile_screen.dart';
 
 class ButtonNavigationBar extends StatefulWidget {
-  const ButtonNavigationBar({super.key});
+  final int initialIndex;
+
+  const ButtonNavigationBar({this.initialIndex = 0, super.key});
 
   @override
   State<ButtonNavigationBar> createState() => _ButtonNavigationBarState();
 }
 
 class _ButtonNavigationBarState extends State<ButtonNavigationBar> {
-  int _currentIndex = 0;
+  late int _currentIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex;
+  }
+
+  void _onTap(int index) {
+    if (index == _currentIndex) return;
+    setState(() => _currentIndex = index);
+
+    switch (index) {
+      case 0:
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => const HomeScreen()),
+          (route) => false,
+        );
+        break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const ProfileScreen()),
+        );
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +73,7 @@ class _ButtonNavigationBarState extends State<ButtonNavigationBar> {
   Widget _buildNavItem(String imagePath, int index) {
     final isSelected = _currentIndex == index;
     return GestureDetector(
-      onTap: () => setState(() => _currentIndex = index),
+      onTap: () => _onTap(index),
       child: Image.asset(
         imagePath,
         width: 24,
