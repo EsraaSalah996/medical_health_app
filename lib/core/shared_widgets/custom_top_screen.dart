@@ -5,7 +5,7 @@ class CustomTopScreen extends StatefulWidget {
   final String title;
 
   const CustomTopScreen({
-    super.key, // تم تحديثها أيضاً للـ super parameter الأحدث والأفضل
+    super.key, 
     required this.title,
   });
 
@@ -39,9 +39,9 @@ class _CustomTopScreenState extends State<CustomTopScreen> {
                 Text(
                   widget.title,
                   style: TextStyle(
-                    color: primaryColor,
+                    color:Color(0XFF2260FF),
                     fontWeight: FontWeight.bold,
-                    fontSize: 16, 
+                    fontSize:18, 
                   ),
                 ),
                 Row(

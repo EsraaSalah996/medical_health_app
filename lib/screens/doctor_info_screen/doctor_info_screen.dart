@@ -5,7 +5,11 @@ import 'package:medical_health_app/core/shared_widgets/custom_top_screen.dart';
 import 'package:medical_health_app/core/shared_widgets/container_doctor_info.dart';
 import 'package:medical_health_app/core/shared_widgets/custom_nav_bar.dart';
 
-class DoctorInfoScreen extends StatelessWidget {
+
+
+class DoctorInfoScreen extends StatelessWidget{
+  const DoctorInfoScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
