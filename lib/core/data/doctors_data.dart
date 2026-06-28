@@ -9,6 +9,7 @@ class DoctorsData {
       specialization: 'Dermato-Endocrinology',
       gender: 'female',
       rating: 4.9,
+      isFavorite: true,
     ),
     DoctorsModel(
       image: 'assets/images/doctor2.png',
@@ -17,6 +18,7 @@ class DoctorsData {
       specialization: 'Dermato-Genetics',
       gender: 'female',
       rating: 4.7,
+      isFavorite: true,
     ),
     DoctorsModel(
       image: 'assets/images/doctor3.png',
@@ -25,6 +27,7 @@ class DoctorsData {
       specialization: 'Cosmetic Bioengineering',
       gender: 'female',
       rating: 4.8,
+      isFavorite: false,
     ),
     DoctorsModel(
       image: 'assets/images/doctor4.png',
@@ -33,14 +36,16 @@ class DoctorsData {
       specialization: 'Solar Dermatology',
       gender: 'female',
       rating: 4.5,
+      isFavorite: false,
     ),
     DoctorsModel(
       image: 'assets/images/doctor5.png',
-      name: 'Dr.  Davidson, M.D.',
+      name: 'Dr. Davidson, M.D.',
       degree: 'M.D.',
       specialization: 'Solar Dermatology',
       gender: 'male',
       rating: 4,
+      isFavorite: true,
     ),
     DoctorsModel(
       image: 'assets/images/doctor6.png',
@@ -49,6 +54,7 @@ class DoctorsData {
       specialization: 'Dermato-Genetics',
       gender: 'male',
       rating: 4.7,
+      isFavorite: false,
     ),
     DoctorsModel(
       image: 'assets/images/doctor7.png',
@@ -57,6 +63,7 @@ class DoctorsData {
       specialization: 'Dermato-Genetics',
       gender: 'male',
       rating: 4.7,
+      isFavorite: false,
     ),
     DoctorsModel(
       image: 'assets/images/doctor8.png',
@@ -65,6 +72,7 @@ class DoctorsData {
       specialization: 'Dermato-Genetics',
       gender: 'male',
       rating: 4.7,
+      isFavorite: true,
     ),
   ];
 }
