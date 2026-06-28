@@ -41,8 +41,8 @@ class IconButtonApp extends StatelessWidget {
         child: isSvg
             ? SvgPicture.asset(
                 imagePath,
-                width: 22,
-                height: 22,
+                width: 20,
+                height: 20,
                 colorFilter: ColorFilter.mode(
                   currentIconColor,
                   BlendMode.srcIn,
@@ -50,8 +50,8 @@ class IconButtonApp extends StatelessWidget {
               )
             : Image.asset(
                 imagePath,
-                width: 22,
-                height: 22,
+                width: 20,
+                height: 20,
                 color: currentIconColor,
               ),
       ),

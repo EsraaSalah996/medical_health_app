@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medical_health_app/screens/home/widgets/dashed_line_painter.dart';
 
 class AppointmentCard extends StatelessWidget {
-  const AppointmentCard({Key? key}) : super(key: key);
+  const AppointmentCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,10 @@ class AppointmentCard extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Padding(
               padding: const EdgeInsets.only(right: 16, bottom: 8),
-              child: Text(
+              child: const Text(
                 '11 Wednesday - Today',
                 style: TextStyle(
-                  color: const Color(0xFF1B62F3),
+                  color: Color(0xFF1B62F3),
                   fontWeight: FontWeight.w600,
                   fontSize: 15,
                 ),
@@ -36,12 +36,15 @@ class AppointmentCard extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                '10 AM',
-                style: TextStyle(
-                  color: const Color(0xFF1B62F3),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
+              const SizedBox(
+                width: 45, // خليناها ثابتة زي الـ ميثود تحت عشان تظبط المحاذاة
+                child: Text(
+                  '10 AM',
+                  style: TextStyle(
+                    color: Color(0xFF1B62F3),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                  ),
                 ),
               ),
               const SizedBox(width: 12),
@@ -54,26 +57,38 @@ class AppointmentCard extends StatelessWidget {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            'Dr. Olivia Turner, M.D.',
-                            style: TextStyle(
-                              color: const Color(0xFF1B62F3),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                          // 1. لفيت اسم الدكتور بـ Expanded عشان ياخد المساحة المتاحة بس وميزقش الأيقونات
+                          Expanded(
+                            child: const Text(
+                              'Dr. Olivia Turner, M.D.',
+                              style: TextStyle(
+                                color: Color(0xFF1B62F3),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow
+                                  .ellipsis, // هيحط نقاط ... لو الاسم طويل جداً
                             ),
                           ),
+                          const SizedBox(
+                            width: 8,
+                          ), // مسافة أمان بين الاسم والأيقونات
+                          // 2. منعنا الـ Row ده من إنه يفرش بالعرض
                           Row(
+                            mainAxisSize: MainAxisSize.min,
                             children: const [
                               Icon(
                                 Icons.check_circle_outline,
                                 size: 16,
                                 color: Colors.white,
                               ),
-                              SizedBox(width: 6),
+                              const SizedBox(width: 6),
                               Icon(
                                 Icons.cancel_outlined,
                                 size: 16,
@@ -108,7 +123,6 @@ class AppointmentCard extends StatelessWidget {
     );
   }
 
-  // ميثود  لبناء  الخطوط المتقطعة
   Widget buildTimelineRow(String time, {required bool hasDivider}) {
     return Row(
       children: [
@@ -116,13 +130,14 @@ class AppointmentCard extends StatelessWidget {
           width: 45,
           child: Text(
             time,
-            style: TextStyle(
-              color: const Color(0xFF1B62F3),
+            style: const TextStyle(
+              color: Color(0xFF1B62F3),
               fontWeight: FontWeight.w500,
               fontSize: 14,
             ),
           ),
         ),
+        const SizedBox(width: 12), // ضفت دي عشان تتماشى مع الـ 10 AM بالظبط
         if (hasDivider)
           Expanded(child: CustomPaint(painter: DashedLinePainter())),
       ],
