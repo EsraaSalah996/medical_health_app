@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:medical_health_app/core/shared_widgets/custom_top_screen.dart';
-// import 'package:medical_health_app/core/shared_widgets/custom_nav_bar.dart';
-// import 'package:medical_health_app/screens/doctor_info_screen/doctor_info_screen.dart';
-// import 'package:medical_health_app/core/shared_widgets/container_doctor_info.dart';
 import 'package:medical_health_app/screens/home/home_screen.dart';
-// import 'package:medical_health_app/screens/profile_screen/screens/profile_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,6 +15,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3D5AF1)),
       ),
       home: const HomeScreen(),
+
     );
   }
 }
