@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical_health_app/core/shared_widgets/custom_header_row.dart';
-import 'package:medical_health_app/screens/home/home_screen.dart';
-import 'package:medical_health_app/screens/login_screen/screens/first_login_screen.dart';
+import 'package:medical_health_app/screens/login_screen/screens/second_login_screen.dart';
 import 'package:medical_health_app/screens/login_screen/screens/sign_up_screen.dart';
 import 'package:medical_health_app/screens/login_screen/widgets/authintcation_footer.dart';
 import 'package:medical_health_app/screens/login_screen/widgets/custom_login_button.dart';
 import 'package:medical_health_app/screens/login_screen/widgets/custom_login_text_feild.dart';
+import 'package:medical_health_app/screens/login_screen/widgets/social_plateform_sync.dart';
 
-class SecondLoginScreen extends StatelessWidget {
-  const SecondLoginScreen({super.key});
+class FirstLoginScreen extends StatelessWidget {
+  const FirstLoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +19,8 @@ class SecondLoginScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustomHeaderRow(
-                title: "Hello",
-                onTap: () {
-                  Navigator.pop(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const FirstLoginScreen(),
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(height: 55),
+              CustomHeaderRow(title: "Hello", onTap: () {}),
+              const SizedBox(height: 34),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
@@ -45,8 +34,17 @@ class SecondLoginScreen extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
+                    SizedBox(height: 12),
+                    const Text(
+                      '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ''',
+                      style: TextStyle(
+                        color: Color(0xff070707),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
 
-                    const SizedBox(height: 45),
+                    const SizedBox(height: 47),
 
                     const CustomLoginTextFeild(
                       label: "Email or Mobile Number",
@@ -84,40 +82,46 @@ class SecondLoginScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => const SecondLoginScreen(),
+                          ),
                         );
                       },
                     ),
                     const SizedBox(height: 24),
 
                     const Center(
-                      child: Text("or", style: TextStyle(fontSize: 18)),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    Center(
-                      child: Container(
-                        width: 62,
-                        height: 62,
-                        decoration: const BoxDecoration(
-                          color: Color(0xffECF1FF),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: SvgPicture.asset(
-                            "assets/icons/finger_print.svg",
-                            width: 34,
-                            height: 34,
-                          ),
+                      child: Text(
+                        "or sign up with",
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                     ),
 
+                    const SizedBox(height: 20),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SocialPlateformSync(
+                          iconPath: "assets/icons/google.svg",
+                        ),
+                        const SizedBox(width: 8),
+                        SocialPlateformSync(
+                          iconPath: "assets/icons/facebook.svg",
+                        ),
+                        const SizedBox(width: 8),
+                        SocialPlateformSync(
+                          iconPath: "assets/icons/finger_print.svg",
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 45),
 
                     AuthintcationFooter(
-                      text: "Don’t have an account? Sign Up",
+                      text: "Don’t have an account? ",
                       actionText: "Sign Up",
                       onTap: () {
                         Navigator.push(
