@@ -12,25 +12,20 @@ class FavoriteTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFFEAEEFF),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Row(
-        children: [
-          TabItem(
-            label: 'Doctors',
-            isSelected: selectedIndex == 0,
-            onTap: () => onTabChanged(0),
-          ),
-          TabItem(
-            label: 'Services',
-            isSelected: selectedIndex == 1,
-            onTap: () => onTabChanged(1),
-          ),
-        ],
-      ),
+    return Row(
+      children: [
+        TabItem(
+          label: 'Doctors',
+          isSelected: selectedIndex == 0,
+          onTap: () => onTabChanged(0),
+        ),
+        const SizedBox(width: 10),
+        TabItem(
+          label: 'Services',
+          isSelected: selectedIndex == 1,
+          onTap: () => onTabChanged(1),
+        ),
+      ],
     );
   }
 }
@@ -54,7 +49,7 @@ class TabItem extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(11),
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF4D6FFF) : Colors.transparent,
+            color: isSelected ? const Color(0xFF2260FF) : const Color(0xFFCAD6FF),
             borderRadius: BorderRadius.circular(30),
           ),
 
@@ -62,7 +57,7 @@ class TabItem extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              color: isSelected ? Colors.white : const Color(0xFF4D6FFF),
+              color: isSelected ? Colors.white : const Color(0xFF2260FF),
               fontWeight: FontWeight.w600,
               fontSize: 14,
             ),

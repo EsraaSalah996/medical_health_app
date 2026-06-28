@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:medical_health_app/core/image/app_colors.dart';
 import 'package:medical_health_app/core/image/app_image.dart';
 import 'package:medical_health_app/core/shared_widgets/icon_button.dart';
+import 'package:medical_health_app/screens/favorite_services/favorite_screen.dart';
+import 'package:medical_health_app/core/shared_widgets/filter_scaffold.dart';
+import 'package:medical_health_app/core/shared_widgets/button_navigation_bar.dart';
 import 'package:medical_health_app/screens/home/widgets/appointment_card.dart';
 import 'package:medical_health_app/screens/home/widgets/calendar_day_item.dart';
 import 'package:medical_health_app/screens/home/widgets/calendar_day_model.dart';
@@ -19,7 +22,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = -1;
   int selectedCalendarIndex = 2;
-  int _currentIndex = 0;
 
   final List<CalendarDayModel> days = [
     CalendarDayModel(dayNumber: "9", dayName: "MON"),
@@ -117,7 +119,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     imagePath: AppImage.hart,
                     title: 'Favorite',
                     isSelected: false,
-                    nextScreen: DummyScreen(title: 'Favorite Screen'),
+                    // nextScreen: DummyScreen(title: 'Favorite Screen'),
+                    nextScreen: FilterScaffold(
+                      title: 'Favorite',
+                      currentFilterIndex: 2,
+                      body: FavoriteScreen(),
+                    ),
                   ),
                   const SizedBox(width: 15),
                   Expanded(
@@ -246,48 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(24),
-        ),
-        padding: const EdgeInsets.all(12.0),
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          decoration: BoxDecoration(
-            color: const Color(0xff2260FF),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildNavItem(AppImage.home, 0),
-              _buildNavItem(AppImage.chat, 1),
-              _buildNavItem(AppImage.counts, 2),
-              _buildNavItem(AppImage.calendar, 3),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNavItem(String imagePath, int index) {
-    final isSelected = _currentIndex == index;
-
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _currentIndex = index;
-        });
-      },
-      child: Image.asset(
-        imagePath,
-        width: 24,
-        height: 24,
-        color: isSelected ? AppColors.isSelected : AppColors.background,
-      ),
+      bottomNavigationBar: const ButtonNavigationBar(),
     );
   }
 }
