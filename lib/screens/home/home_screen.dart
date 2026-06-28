@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:medical_health_app/core/image/app_colors.dart';
 import 'package:medical_health_app/core/image/app_image.dart';
 import 'package:medical_health_app/core/shared_widgets/icon_button.dart';
-import 'package:medical_health_app/screens/favorite_services/favorite_screen.dart';
-import 'package:medical_health_app/core/shared_widgets/filter_scaffold.dart';
 import 'package:medical_health_app/core/shared_widgets/button_navigation_bar.dart';
-import 'package:medical_health_app/screens/home/widgets/appointment_card.dart';
-import 'package:medical_health_app/screens/home/widgets/calendar_day_item.dart';
 import 'package:medical_health_app/screens/home/widgets/calendar_day_model.dart';
-import 'package:medical_health_app/screens/home/widgets/doc_card.dart';
-import 'package:medical_health_app/screens/home/widgets/dummy_screen.dart';
-import 'package:medical_health_app/screens/home/widgets/category_item_app.dart';
+import 'package:medical_health_app/screens/home/widgets/HomeCalendarSection.dart';
+
+import 'widgets/home_categories_and_search.dart';
+import 'widgets/home_doctors_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = -1;
-  int selectedCalendarIndex = 2;
 
   final List<CalendarDayModel> days = [
     CalendarDayModel(dayNumber: "9", dayName: "MON"),
@@ -53,10 +49,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(width: 12),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
-              children: const [
+              children: [
                 Text(
                   'Hi, Welcome Back',
                   style: TextStyle(fontSize: 12, color: AppColors.card),
@@ -99,157 +95,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ==========================================
-            // ==========================================
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 10.0,
-              ),
-              child: Row(
-                children: [
-                  CategoryItemApp(
-                    imagePath: AppImage.stethoscope,
-                    title: 'Doctors',
-                    isSelected: true,
-                    nextScreen: DummyScreen(title: 'Doctors Screen'),
-                  ),
-                  const SizedBox(width: 15),
-                  CategoryItemApp(
-                    imagePath: AppImage.hart,
-                    title: 'Favorite',
-                    isSelected: false,
-                    // nextScreen: DummyScreen(title: 'Favorite Screen'),
-                    nextScreen: FilterScaffold(
-                      title: 'Favorite',
-                      currentFilterIndex: 2,
-                      body: FavoriteScreen(),
-                    ),
-                  ),
-                  const SizedBox(width: 15),
-                  Expanded(
-                    child: Container(
-                      height: 45,
-                      decoration: BoxDecoration(
-                        color: AppColors.primary,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: TextFormField(
-                        cursorColor: AppColors.primary,
-                        decoration: InputDecoration(
-                          hintText: 'Search...',
-                          hintStyle: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
-                          ),
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.all(6.0),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 18,
-                              child: Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Image.asset(
-                                  AppImage.filter,
-                                  color: Colors.black,
-                                  width: 20,
-                                  height: 20,
-                                ),
-                              ),
-                            ),
-                          ),
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Image.asset(AppImage.search),
-                          ),
-                          border: InputBorder.none,
-                          contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            const HomeCategoriesAndSearch(),
             const SizedBox(height: 10),
-
-            // ==========================================
-            // ==========================================
-            Container(
-              width: double.infinity,
-              color: AppColors.primary,
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 95,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      itemCount: days.length,
-                      itemBuilder: (context, index) {
-                        return CalendarDayItem(
-                          dayNumber: days[index].dayNumber,
-                          dayName: days[index].dayName,
-                          isSelected: selectedCalendarIndex == index,
-                          onTap: () {
-                            setState(() {
-                              selectedCalendarIndex = index;
-                            });
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                      padding: const EdgeInsets.all(16),
-                      child: const AppointmentCard(),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // ==========================================
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  DocCard(
-                    name: "Dr. Olivia Turner, M.D.",
-                    specialty: "Dermato-Endocrinology",
-                    rating: "5",
-                    reviews: "60",
-                    image: AppImage.doctor1,
-                  ),
-                  const SizedBox(height: 16),
-                  DocCard(
-                    name: "Dr. Alexander Bennett, Ph.D.",
-                    specialty: "Dermato-Genetics",
-                    rating: "4.5",
-                    reviews: "40",
-                    image: AppImage.doctor2,
-                  ),
-                  const SizedBox(height: 16),
-                  DocCard(
-                    name: "Dr. Sophia Martinez, Ph.D.",
-                    specialty: "Cosmetic Bioengineering",
-                    rating: "4.8",
-                    reviews: "55",
-                    image: AppImage.doctor8,
-                  ),
-                ],
-              ),
-            ),
+            HomeCalendarSection(days: days),
+            const HomeDoctorsList(),
           ],
         ),
       ),
