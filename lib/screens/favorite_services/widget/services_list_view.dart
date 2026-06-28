@@ -10,7 +10,7 @@ class ServicesListView extends StatefulWidget {
 
 class _ServicesListViewState extends State<ServicesListView> {
   final List<Map<String, dynamic>> services = [
-    {'title': 'Dermato-Endocrinology', 'expanded': false},
+    {'title': 'Dermato-Endocrinology', 'expanded': true},
     {'title': 'Cosmetic Bioengineering', 'expanded': false},
     {'title': 'Dermato-Genetics', 'expanded': false},
     {'title': 'Solar Dermatology', 'expanded': false},

@@ -1,33 +1,34 @@
-
 import 'package:flutter/material.dart';
-import 'package:medical_health_app/core/shared_widgets/custom_nav_bar.dart';
-import 'package:medical_health_app/core/shared_widgets/custom_rating_cart.dart';
+import 'package:medical_health_app/core/data/doctors_data.dart';
+import 'package:medical_health_app/core/shared_widgets/button_navigation_bar.dart';
+import 'package:medical_health_app/screens/favorite_services/widget/custom_rating_cart.dart';
 import 'package:medical_health_app/core/shared_widgets/custom_top_screen.dart';
-import 'package:medical_health_app/core/shared_widgets/data_doctor_rating.dart';
 
-class RatingScreen extends StatelessWidget{
+class RatingScreen extends StatelessWidget {
   const RatingScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final doctors = [...DoctorsData.all]
+      ..sort((a, b) => b.rating.compareTo(a.rating));
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
             const CustomTopScreen(title: "Rating"),
             const SizedBox(height: 10),
-            
             Expanded(
               child: ListView.builder(
-                itemCount: doctorsList.length,
+                itemCount: doctors.length,
                 padding: const EdgeInsets.only(bottom: 16),
                 itemBuilder: (context, index) {
-                  final doctor = doctorsList[index];
-                  
+                  final doctor = doctors[index];
                   return CustomRatingCard(
-                    doctorName: doctor["name"]!,
-                    specialty: doctor["specialty"]!,
-                    rating: doctor["rating"]!,
-                    doctorImagePath: doctor["image"]!, 
+                    doctorName: doctor.name,
+                    specialty: doctor.specialization,
+                    rating: doctor.rating.toString(),
+                    doctorImagePath: doctor.image,
                   );
                 },
               ),
@@ -35,7 +36,7 @@ class RatingScreen extends StatelessWidget{
           ],
         ),
       ),
-      bottomNavigationBar:CustomNavBar(),
+      bottomNavigationBar: const ButtonNavigationBar(),
     );
   }
 }
