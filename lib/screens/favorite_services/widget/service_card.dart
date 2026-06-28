@@ -14,57 +14,92 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: onTap,
-          child: Container(
-            margin: const EdgeInsets.only(bottom: 8),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            decoration: BoxDecoration(
-              color: const Color(0xFF4D6FFF),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Row(
-              children: [
-                const Icon(Icons.favorite, color: Colors.white, size: 18),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Column(
+        children: [
+          // Header
+          GestureDetector(
+            onTap: onTap,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              decoration: BoxDecoration(
+                color: const Color(0xFF2260FF),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Row(
+                children: [
+                  const Icon(Icons.favorite, color: Colors.white, size: 18),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                ),
-                Icon(
-                  isExpanded
-                      ? Icons.keyboard_arrow_up
-                      : Icons.keyboard_arrow_down,
-                  color: Colors.white,
-                ),
-              ],
+                  Container(
+                    width: 28,
+                    height: 28,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.check,
+                      color: Color(0xFF2260FF),
+                      size: 16,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        if (isExpanded)
+          // Expanded content
+          if (isExpanded)
+            Container(
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 4),
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+              decoration: BoxDecoration(
+                color: const Color(0xFFCAD6FF),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                    'Praesent pellentesque congue lorem, vel tincidunt tortor '
+                    'placerat at. Proin ac diam quam. '
+                    'Aenean in sagittis magna, ut feugiat diam.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 12, color: Colors.black54),
+                  ),
+                  const SizedBox(height: 14),
+                ],
+              ),
+            ),
           Container(
-            margin: const EdgeInsets.only(bottom: 12),
-            padding: const EdgeInsets.all(14),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 10),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(30),
             ),
             child: const Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-              'Praesent pellentesque congue lorem, vel tincidunt tortor '
-              'placerat at. Praesent dui quam. Aenean in sagittis magna.',
-              style: TextStyle(fontSize: 12, color: Colors.black54),
+              'looking doctors',
+              style: TextStyle(
+                color: Color(0xFF2260FF),
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
             ),
           ),
-      ],
+        ],
+      ),
     );
   }
 }

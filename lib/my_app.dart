@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical_health_app/screens/doctor_info_screen/doctor_info_screen.dart';
 import 'package:medical_health_app/screens/home/home_screen.dart';
-import 'package:medical_health_app/screens/login_screen/screens/second_login_screen.dart';
-import 'package:medical_health_app/screens/profile_screen/screens/profile_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,7 +14,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF0F0FF),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF3D5AF1)),
       ),
-      home: SecondLoginScreen(),
+      home: const HomeScreen(),
+
     );
   }
 }

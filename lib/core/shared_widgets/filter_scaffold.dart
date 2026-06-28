@@ -3,6 +3,7 @@ import 'package:medical_health_app/core/data/doctors_data.dart';
 import 'package:medical_health_app/core/shared_widgets/gender_card.dart';
 import 'package:medical_health_app/screens/favorite_services/favorite_screen.dart';
 import 'package:medical_health_app/core/shared_widgets/filter_search.dart';
+import 'package:medical_health_app/core/shared_widgets/button_navigation_bar.dart';
 
 class FilterScaffold extends StatelessWidget {
   final String title;
@@ -122,6 +123,7 @@ class FilterScaffold extends StatelessWidget {
           Expanded(child: body),
         ],
       ),
+      bottomNavigationBar: const ButtonNavigationBar(),
     );
   }
 }
