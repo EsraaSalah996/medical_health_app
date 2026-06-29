@@ -3,6 +3,7 @@ import 'package:medical_health_app/core/image/app_colors.dart';
 import 'package:medical_health_app/core/image/app_image.dart';
 import 'package:medical_health_app/core/models/doctors_model.dart';
 import 'package:medical_health_app/core/shared_widgets/icon_button.dart';
+import 'package:medical_health_app/screens/doctor_info_screen/doctor_info_screen.dart';
 
 class DoctorsItem extends StatelessWidget {
   const DoctorsItem({super.key, required this.model});
@@ -11,7 +12,12 @@ class DoctorsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const DoctorInfoScreen()),
+      ),
+      child: Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: const Color(0xFFD6E2FF),
@@ -110,6 +116,8 @@ class DoctorsItem extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }
+
