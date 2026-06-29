@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medical_health_app/core/data/doctors_data.dart';
+import 'package:medical_health_app/screens/doctors/Widgets/doctors_card.dart';
 import 'package:medical_health_app/screens/favorite_services/widget/gender_card.dart';
 import 'package:medical_health_app/screens/favorite_services/favorite_screen.dart';
 import 'package:medical_health_app/core/shared_widgets/filter_search.dart';
@@ -29,15 +30,21 @@ class FilterScaffold extends StatelessWidget {
   static Widget _pageForIndex(int index) {
     switch (index) {
       case 0:
+        final az = [...DoctorsData.all]..sort((a, b) => a.name.compareTo(b.name));
         return FilterScaffold(
           key: ValueKey(index),
           title: 'A → Z',
           currentFilterIndex: 0,
-          body: const Center(child: Text('A → Z')),
+          body: ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+            itemCount: az.length,
+            separatorBuilder: (_, __) => const SizedBox(height: 16),
+            itemBuilder: (context, i) => DoctorsItem(model: az[i]),
+          ),
         );
       case 1:
         final sorted = [...DoctorsData.all]
-          ..sort((a, b) => b.rating.compareTo(a.rating));
+          ..sort((a, b) => (b.rating ?? 0).compareTo(a.rating ?? 0));
         return FilterScaffold(
           key: ValueKey(index),
           title: 'Top Rated',

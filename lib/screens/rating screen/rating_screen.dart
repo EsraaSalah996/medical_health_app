@@ -10,7 +10,7 @@ class RatingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final doctors = [...DoctorsData.all]
-      ..sort((a, b) => b.rating.compareTo(a.rating));
+      ..sort((a, b) => (b.rating ?? 0).compareTo(a.rating ?? 0));
 
     return Scaffold(
       body: SafeArea(

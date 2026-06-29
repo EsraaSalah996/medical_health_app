@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
-import 'package:medical_health_app/screens/welcome%20screen/welcome_screen.dart';
+import 'package:medical_health_app/screens/splash_screen/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      home: SplashScreen(),
     );
   }
 }
