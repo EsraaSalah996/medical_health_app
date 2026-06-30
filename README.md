@@ -328,11 +328,11 @@ flutter run
 > Add screenshots here by placing images in a `/screenshots` folder and linking them below.
 
 | Splash | Welcome |
-| ------------------------------- || ------------------------------- |
+| ------------------------------- || ------------------------------------ |
 | ![Splash](screenshots/splash.png) | ![Welcome](screenshots/welcome.png) |
-Login || Login 2 |Sign |
-| --------------------------------- | ----------------------------------- | ------------------------------- |
-![Login](screenshots/login.png) || ![Login 2](screenshots/login2.png) || ![Sign](screenshots/sign.png) |
+Login || Login 2 ||Sign |
+| ------------------------------||------------------------------------|| -----------------------------|
+![Login](screenshots/login.png) || ![Login 2](screenshots/login2.png) || ![Sign](screenshots/sign.png)|
 
 | Home                          | Doctors                             | Doctor Info                         |
 | ----------------------------- | ----------------------------------- | ----------------------------------- |
