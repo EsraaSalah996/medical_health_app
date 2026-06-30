@@ -9,8 +9,8 @@ class ContainerDoctorInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      height: 280,
+      width: 350,
+      height: 290,
       padding: const EdgeInsets.all(9),
       decoration: BoxDecoration(
         color: Color(0xffCAD6FF),

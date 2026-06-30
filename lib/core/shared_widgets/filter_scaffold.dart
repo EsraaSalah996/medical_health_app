@@ -19,21 +19,21 @@ class FilterScaffold extends StatelessWidget {
     super.key,
   });
 
-  static void _navigate(BuildContext context, int index, int current) {
+  static void navigate(BuildContext context, int index, int current) {
     if (index == current) return;
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => _pageForIndex(index)),
+      MaterialPageRoute(builder: (_) => pageForIndex(index)),
     );
   }
 
-  static Widget _pageForIndex(int index) {
+  static Widget pageForIndex(int index) {
     switch (index) {
       case 0:
         final az = [...DoctorsData.all]..sort((a, b) => a.name.compareTo(b.name));
         return FilterScaffold(
           key: ValueKey(index),
-          title: 'A → Z',
+          title: 'Doctors',
           currentFilterIndex: 0,
           body: ListView.separated(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
@@ -162,7 +162,7 @@ class FilterScaffold extends StatelessWidget {
               key: ValueKey(currentFilterIndex),
               initialIndex: currentFilterIndex,
               onFilterChanged: (index) =>
-                  _navigate(context, index, currentFilterIndex),
+                  navigate(context, index, currentFilterIndex),
             ),
           ),
           Expanded(child: body),
